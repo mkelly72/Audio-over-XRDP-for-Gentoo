@@ -39,7 +39,7 @@ sudo ./bootstrap
 sudo ./configure PULSE_DIR=$PULSEDIR PULSE_CONFIG_DIR=$PULSECONFIGDIR
 sudo make
 cd src/.libs
-if test -d /usr/lib64; then
+if test -d /usr/lib64/pulseaudio/modules; then
 	sudo install -t "/usr/lib64/pulseaudio/modules" -D -m 644 *.so
 	else
 	sudo install -t "/usr/lib/pulseaudio/modules" -D -m 644 *.so
