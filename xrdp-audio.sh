@@ -42,8 +42,18 @@ cd src/.libs
 sudo install -t "/usr/lib64/pulseaudio/modules" -D -m 644 *.so
 
 ### Restart pulseaudio
-systemctl --user restart pulseaudio
-systemctl --user enable pulseaudio
+if test -f /usr/bin/systemctl; then
+	systemctl --user restart pulseaudio
+    systemctl --user enable pulseaudio
+fi
+if test -f /sbin/rc-update; then
+    sudo rc-update add pulseaudio default
+    sudo rc-service pulseaudio start
+fi
+
+sudo rc-update add pulseaudio default
+sudo rc-service pulseaudio start
+
 
 ### Clean up
 cd ~
