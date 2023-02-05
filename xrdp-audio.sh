@@ -5,7 +5,7 @@
 ### Download and install dependencies
 sudo emerge -u media-sound/pulseaudio dev-vcs/git app-portage/gentoolkit
 
-### Find current pulseaudio version and set variables NEED TO FIX $MYARCH!!!
+### Find current pulseaudio version and set variables
 LIBPULSEVERSION=$(equery list libpulse | awk '/libpulse/ {print}'| sed 's/media-libs\///')
 PULSEAUDIOEBUILD=/var/db/repos/gentoo/media-libs/libpulse/$LIBPULSEVERSION.ebuild
 PULSEAUDIOVERSION=$(equery list pulseaudio | awk '/pulseaudio/ {print}' | sed 's/media-sound\///')
